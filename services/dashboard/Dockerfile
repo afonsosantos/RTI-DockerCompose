@@ -1,14 +1,16 @@
 FROM node:alpine
 
-WORKDIR /app
-
 RUN apk add git
 
-RUN git clone https://github.com/IuriRaimundo/DashboardGenerico dashboard
+WORKDIR /dashboard
 
-COPY ./dashboard/package.json .
-COPY ./dashboard/package-lock.json .
-COPY ./dashboard/ .
+RUN git clone https://github.com/IuriRaimundo/DashboardGenerico .
+
+WORKDIR /app
+
+COPY /dashboard/package.json ./
+COPY /dashboard/package-lock.json ./
+COPY /dashboard/ ./
 
 RUN npm install
 
