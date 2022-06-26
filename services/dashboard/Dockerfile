@@ -8,9 +8,9 @@ RUN result="$(git clone https://github.com/IuriRaimundo/DashboardGenerico .)" &&
 
 WORKDIR /app
 
-COPY /dashboard/package.json ./
-COPY /dashboard/package-lock.json ./
-COPY /dashboard/ ./
+RUN cp /dashboard/package.json ./
+RUN cp /dashboard/package-lock.json ./
+RUN cp /dashboard/* ./
 
 RUN npm install
 
