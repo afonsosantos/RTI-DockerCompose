@@ -4,7 +4,7 @@ RUN apk add git
 
 WORKDIR /dashboard
 
-RUN git clone https://github.com/IuriRaimundo/DashboardGenerico .
+RUN result="$(git clone https://github.com/IuriRaimundo/DashboardGenerico .)" && echo $result
 
 WORKDIR /app
 
