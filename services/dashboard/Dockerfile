@@ -4,13 +4,13 @@ RUN apk add git
 
 WORKDIR /dashboard
 
-RUN result="$(git clone https://github.com/IuriRaimundo/DashboardGenerico .)" && echo $result
+RUN git clone https://github.com/IuriRaimundo/DashboardGenerico .
 
 WORKDIR /app
 
 RUN cp /dashboard/package.json ./
 RUN cp /dashboard/package-lock.json ./
-RUN cp /dashboard/* ./
+RUN cp -r /dashboard ./
 
 RUN npm install
 
