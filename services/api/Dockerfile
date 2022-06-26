@@ -23,6 +23,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN composer install
 
-COPY config/php.ini /usr/local/etc/php/
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 EXPOSE 80
