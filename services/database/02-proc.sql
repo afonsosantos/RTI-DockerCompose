@@ -1,3 +1,4 @@
+DELIMITER $$
 CREATE TRIGGER tbi_entrance_logs
     BEFORE INSERT
     ON entrance_logs
@@ -16,35 +17,38 @@ BEGIN
     ELSE
         SET NEW.access = 0;
     END IF;
-END;
-/
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER tbi_sensor_logs
     BEFORE INSERT
     ON sensor_logs
     FOR EACH ROW
 BEGIN
     SET NEW.timestamp = UNIX_TIMESTAMP();
-END;
-/
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER tbi_actuator_logs
     BEFORE INSERT
     ON actuator_logs
     FOR EACH ROW
 BEGIN
     SET NEW.timestamp = UNIX_TIMESTAMP();
-END;
-/
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER tbi_users
     BEFORE INSERT
     ON user
     FOR EACH ROW
 BEGIN
     SET NEW.password = md5(NEW.password);
-END;
-/
+END$$
+DELIMITER ;
 
 CREATE VIEW entrance_logs_person_view AS
 SELECT el.entrance_log_id,
