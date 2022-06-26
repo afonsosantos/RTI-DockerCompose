@@ -8,8 +8,8 @@ RUN git clone https://github.com/IuriRaimundo/DashboardGenerico dashboard
 
 WORKDIR /app/dashboard
 
-COPY package.json ../
-COPY package-lock.json ../
+COPY ./package.json ../
+COPY ./package-lock.json ../
 COPY ./ ../
 
 WORKDIR /app
