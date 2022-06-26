@@ -1,5 +1,7 @@
 FROM php:8.0-apache
 
+# change values here, if needed
+
 ARG DB_USER='rti'
 ARG DB_USER_PASSWORD='rti@2022!'
 
