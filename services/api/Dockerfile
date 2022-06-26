@@ -5,7 +5,7 @@ ARG DB_USER
 ARG DB_USER_PASSWORD
 
 WORKDIR /var/www/html
-RUN rm -r *
+# RUN rm -r *
 
 RUN apt-get update
 RUN apt-get install git -y
