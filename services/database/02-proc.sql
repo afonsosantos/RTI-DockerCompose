@@ -65,12 +65,12 @@ ON el.rfid  = p.rfid;
 /
 
 CREATE VIEW general_stats_view AS
-SELECT (SELECT COUNT(1) FROM person) "people_count",
-       (SELECT COUNT(1) FROM entrance_logs WHERE access = 1) "successful_entrance_logs",
-       (SELECT COUNT(1) FROM entrance_logs WHERE access = 0) "unsuccessful_entrance_logs",
-       (SELECT COUNT(1) FROM sensor_logs) "sensor_log_count",
-       (SELECT COUNT(1) FROM actuator_logs) "actuator_log_count",
-       (SELECT COUNT(1) FROM permission) "permission_count"
+SELECT (SELECT COUNT(1) FROM person) people_count,
+       (SELECT COUNT(1) FROM entrance_logs WHERE access = 1) successful_entrance_logs,
+       (SELECT COUNT(1) FROM entrance_logs WHERE access = 0) unsuccessful_entrance_logs,
+       (SELECT COUNT(1) FROM sensor_logs) sensor_log_count,
+       (SELECT COUNT(1) FROM actuator_logs) actuator_log_count,
+       (SELECT COUNT(1) FROM permission) permission_count
 FROM dual;
 /
 
