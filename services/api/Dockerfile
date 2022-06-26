@@ -14,8 +14,8 @@ RUN git clone https://github.com/Projetos-IPL/RTI-API .
 
 # replace database configuration
 
-RUN sed -i s/localhost/${DB_DATABASE} ./utils/constants.php
-RUN sed -i s/root/${DB_USER} ./utils/constants.php
-RUN sed -i s/password/${DB_USER_PASSWORD} ./utils/constants.php
+RUN sed -i 's/localhost/rti' ./utils/constants.php
+RUN sed -i 's/root/rti' ./utils/constants.php
+RUN sed -i 's/password/rti@2022!' ./utils/constants.php
 
 EXPOSE 80
