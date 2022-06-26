@@ -27,6 +27,19 @@ services:
       - 8082:80
     depends_on:
       - database
+      # - socket
+    env_file:
+      - .env
+
+  dashboard:
+    build: ./services/dashboard
+    container_name: dashboard
+    restart: always
+    ports:
+      - 8083:3000
+    depends_on:
+      - database
+      # - socker
     env_file:
       - .env
 
