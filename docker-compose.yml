@@ -1,0 +1,42 @@
+volumes:
+  database_data:
+
+services:
+  database:
+    image: mariadb:latest
+    container_name: database
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./services/database:/docker-entrypoint-initdb.d
+      - database_data:/var/lib/mysql
+    env_file:
+      - .env
+
+  api:
+    build: ./services/api/
+    container_name: api
+    restart: always
+    ports:
+      - 8082:80
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=database
+    depends_on:
+      - database
