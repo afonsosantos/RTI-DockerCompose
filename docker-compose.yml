@@ -32,7 +32,7 @@ services:
       - .env
 
   dashboard:
-    build: ./services/dashboard
+    build: ./services/dashboard/
     container_name: dashboard
     restart: always
     ports:
