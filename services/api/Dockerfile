@@ -12,10 +12,12 @@ RUN apt-get install git -y
 
 RUN git clone https://github.com/Projetos-IPL/RTI-API .
 
+RUN echo ${DB_DATABASE}
+
 # replace database configuration
 
-RUN sed -i "s/localhost/${DB_DATABASE}" ./utils/constants.php
-RUN sed -i "s/root/${DB_USER}" ./utils/constants.php
-RUN sed -i "s/password/${DB_USER_PASSWORD}" ./utils/constants.php
+RUN sed -i "s/localhost/${DB_DATABASE}/" ./utils/constants.php
+RUN sed -i "s/root/${DB_USER}/" ./utils/constants.php
+RUN sed -i "s/password/${DB_USER_PASSWORD}/" ./utils/constants.php
 
 EXPOSE 80
