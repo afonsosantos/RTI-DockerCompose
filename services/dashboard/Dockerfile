@@ -14,7 +14,7 @@ RUN cp -R /dashboard/* ./
 
 # replace configurations
 
-RUN sed -i "s/localhost:8080/localhost:8082/" ./src/config.js
+RUN sed -i "s/localhost:8080/65.52.158.78:8082/" ./src/config.js
 
 RUN npm install
 
