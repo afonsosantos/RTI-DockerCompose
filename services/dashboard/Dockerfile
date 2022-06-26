@@ -12,8 +12,9 @@ RUN cp /dashboard/package.json ./
 RUN cp /dashboard/package-lock.json ./
 RUN cp -R /dashboard/* ./
 
-# replace configurations
-
+#
+# !! IMPORTANT: change the IP address to the public IP of the Docker host
+#
 RUN sed -i "s/localhost:8080/65.52.158.78:8082/" ./src/config.js
 
 RUN npm install

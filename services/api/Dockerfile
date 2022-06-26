@@ -6,6 +6,8 @@ ARG DB_USER_PASSWORD
 
 WORKDIR /var/www/html
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 RUN apt-get update
 RUN apt-get install git -y
 
