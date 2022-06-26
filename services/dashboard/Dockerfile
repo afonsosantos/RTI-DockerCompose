@@ -10,7 +10,7 @@ WORKDIR /app
 
 RUN cp /dashboard/package.json ./
 RUN cp /dashboard/package-lock.json ./
-RUN cp -r /dashboard ./
+RUN cp -r /dashboard/ ./
 
 RUN npm install
 
