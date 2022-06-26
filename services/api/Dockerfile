@@ -1,7 +1,7 @@
 FROM php:8.0-apache
 
-ARG DB_USER="rti"
-ARG DB_USER_PASSWORD="rti@2022!"
+ARG DB_USER='rti'
+ARG DB_USER_PASSWORD='rti@2022!'
 
 WORKDIR /var/www/html
 
