@@ -20,4 +20,8 @@ RUN sed -i "s/localhost/${DB_DATABASE}/" ./utils/constants.php
 RUN sed -i "s/root/${DB_USER}/" ./utils/constants.php
 RUN sed -i "s/password/${DB_USER_PASSWORD}/" ./utils/constants.php
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+RUN composer install
+
 EXPOSE 80
