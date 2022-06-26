@@ -1,10 +1,5 @@
 FROM php:8.0-apache
 
-# change values here, if needed
-
-ARG DB_USER='rti'
-ARG DB_USER_PASSWORD='rti@2022!'
-
 WORKDIR /var/www/html
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
@@ -17,8 +12,8 @@ RUN git clone https://github.com/Projetos-IPL/RTI-API .
 # replace database configuration
 
 RUN sed -i "s/localhost/database/" ./utils/constants.php
-RUN sed -i "s/root/${DB_USER}/" ./utils/constants.php
-RUN sed -i "s/password/${DB_USER_PASSWORD}/" ./utils/constants.php
+RUN sed -i "s/root/rti/" ./utils/constants.php
+RUN sed -i "s/password/rti@2022!/" ./utils/constants.php
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
