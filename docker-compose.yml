@@ -27,7 +27,7 @@ services:
       - 8082:80
     depends_on:
       - database
-      # - socket
+      - socket
     env_file:
       - .env
 
@@ -39,10 +39,20 @@ services:
       - 8083:3000
     depends_on:
       - database
-      # - socker
+      - socket
     env_file:
       - .env
 
+  socket:
+    build: ./services/socket/
+    container_name: socket
+    restart: always
+    ports:
+      - 8084:3000
+    env_file:
+      - .env
+
+  # optional
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
