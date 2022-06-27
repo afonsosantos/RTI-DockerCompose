@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN git clone https://github.com/Projetos-IPL/RTI-Socket-Server .
 
-RUN sed -i "s/localhost:3000/*:*" ./server.js
+RUN sed -i "s/localhost:3000/*:*/" ./server.js
 
 RUN npm install
 
