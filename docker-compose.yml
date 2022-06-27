@@ -28,8 +28,6 @@ services:
     depends_on:
       - database
       - socket
-    env_file:
-      - .env
 
   dashboard:
     build: ./services/dashboard/
@@ -40,8 +38,6 @@ services:
     depends_on:
       - database
       - socket
-    env_file:
-      - .env
 
   socket:
     build: ./services/socket/
@@ -49,8 +45,6 @@ services:
     restart: always
     ports:
       - 8084:3000
-    env_file:
-      - .env
 
   # optional
   phpmyadmin:
