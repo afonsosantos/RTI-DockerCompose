@@ -1,22 +1,24 @@
 FROM node:alpine
 
+ARG REACT_APP_API_URL
+ARG REACT_APP_RPI_URL
+ARG REACT_APP_SOCKET_URL
+
+ENV REACT_APP_API_URL $REACT_APP_API_URL
+ENV REACT_APP_RPI_URL $REACT_APP_RPI_URL
+ENV REACT_APP_SOCKET_URL $REACT_APP_SOCKET_URL
+
 RUN apk add git
 
 WORKDIR /dashboard
 
-RUN git clone https://github.com/IuriRaimundo/DashboardGenerico .
+RUN git clone https://github.com/Projetos-IPL/RTI-Dashboard .
 
 WORKDIR /app
 
 RUN cp /dashboard/package.json ./
 RUN cp /dashboard/package-lock.json ./
 RUN cp -R /dashboard/* ./
-
-#
-# !! IMPORTANT: change the IP address to the public IP of the Docker host
-#
-RUN sed -i "s/localhost:8080/20.101.135.82:8082/" ./src/config.js
-RUN sed -i "s/127.0.0.1:3001/20.101.135.82:8084/" ./src/config.js
 
 RUN npm install
 

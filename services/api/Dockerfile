@@ -9,12 +9,6 @@ RUN apt-get install git -y
 
 RUN git clone https://github.com/Projetos-IPL/RTI-API .
 
-# replace database configuration
-
-RUN sed -i "s/localhost/database/" ./utils/constants.php
-RUN sed -i "s/root/rti/" ./utils/constants.php
-RUN sed -i "s/password/rti@2022!/" ./utils/constants.php
-
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN composer install
