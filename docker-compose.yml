@@ -44,7 +44,7 @@ services:
     container_name: dashboard
     restart: always
     ports:
-      - ${DASHBOARD_PORT:-8083}:3000
+      - ${DASHBOARD_PORT:-8083}:8080
     depends_on:
       - database
       - socket
